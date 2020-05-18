@@ -1,0 +1,513 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #242333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    position: relative;
+    bottom: 100px;
+  }
+  #selectedSeats{
+    position: relative;
+    top: -100px
+  }
+  .main-div{
+    perspective: 800px;
+    margin-bottom: 30px;
+    position: relative;
+    right: 100px;
+    bottom: 100px;
+  }
+  .movie-contianer, .flip-card{
+    margin-top: 50px;
+  }
+  
+  .movie-contianer{
+    margin: 20px 0;
+  
+  }
+  .movie-container select{
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 5px 15px 5px 15px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .seat{
+    background-color: #444451;
+    height: 12px;
+    width: 15px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .seat.selected{
+    background-color: #6FEAF6;
+  }
+  .seat.occupied{
+    background-color: white;
+  }
+  .seat:nth-of-type(2) {
+    margin-right: 18px;
+  }
+  .seat:nth-last-of-type(2) {
+    margin-left: 18px;
+  }
+  .seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2)
+  }
+  .showcase .seat:not(.seat.occupied):hover {
+    cursor: default;
+    transform: scale(1)
+  }
+  .showcase {
+    background-color: rgba(0,0,0,0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    right: 100px;
+    bottom: 250px;
+  }
+  .showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+  }
+  .showcase li small {
+    margin-left: 2px;
+  }
+  /* .row {
+    display: flex;
+  } */
+  .screen{
+    background-color: white;
+    height: 105px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 10px rgba(255,255,255,0.7);
+  }
+  p.text{
+    margin: 5px 0;
+    position: relative;
+    right: 100px;
+    bottom: 250px;
+  }
+  p.text span {
+    color: #6FEAF6;
+  }
+  /* .hide {
+    display: none;
+  } */
+  .invisible {
+  visibility: hidden;
+  }
+  /*  */
+  .flip-card {
+  position: relative;
+  left: 200px;
+  top: 530px;
+  background-color: transparent;
+  height: 275px;
+  width: 175px;
+  font-size: 14px;
+  perspective: 1000px;
+  }
+  .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  }
+  .flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  /* font-family: 'FontAwesome';content: '\f00d'; */
+  }
+  .flip-card-front {
+  background-color: #bbb;
+  color: black;
+  }
+  .flip-card-back {
+  background-color: #2980B9;
+  color: white;
+  transform: rotateY(180deg);
+  }
+  .flip-card-back p {
+  font-size: 14px;
+  text-align: center;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 2px;
+  padding-right: 2px;
+  }
+  img {
+  height: 275px;
+  width: 175px;
+  border-radius: 10px;
+  /* border-style: none; */
+  }
+  .close1 {
+  font-weight: bold;
+  opacity: 100%;
+  float: right;
+  margin-right: 5%;
+  margin-top: 2%;
+  color:white;
+  }
+  .close1-front {
+  font-weight: bold;
+  opacity: 100%;
+  float: right;
+  color:white;
+  }
+  .close1:hover {
+  opacity: 90%;
+  }
+  /* */
+  .dropbtn {
+    background-color: #6FEAF6;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    opacity: 80%;
+    width: auto;
+    position: relative;
+    left: 245px;
+    top: 550px;
+  }
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #1CECFF;
+    border-radius: 15px;
+  }
+  .dropdown1 {
+    position: relative;
+    display: inline-block;
+    border-radius: 15px;
+  }
+  .dropdown1:hover {
+    position: relative;
+    display: inline-block;
+    border-radius: 15px;
+    display: inline-block
+  }
+  .dropdown1-content {
+    visibility: hidden;
+    position: absolute;
+    background-color: #F1F1F1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown1-content li {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown1 li:hover {
+      background-color: #ddd;
+  }
+  .show1 {
+      visibility: visible;
+      border-radius: 15px;
+  }
+    ul {
+    padding: 0px;
+    margin: 0px;
+  }
+  #myDropdown {
+  opacity: 97%;
+  position: relative;
+  left: 215px;
+  top: 540px;
+  }
+  body {
+  font: 16px Arial;
+  }
+  .autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+  }
+  input {
+  border: 1px solid transparent;
+  background-color: #F1F1F1;
+  padding: 10px;
+  font-size: 16px;
+  }
+  input[type=text] {
+  background-color: #F1F1F1;
+  width: 100%;
+  }
+  input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  }
+  .autocomplete-items {
+  position: absolute;
+  border: 1px solid #D4D4D4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+  }
+  .autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #D4D4D4;
+  }
+  .autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #E9E9E9;
+  }
+  .autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #FFFFFF;
+  }
+  
+  #paymentCard{
+    position: relative;
+    bottom: 500px;
+    right: 200px;
+    width: 45%;
+  }
+  
+  .card{
+    background-color: rgba(0,0,0,.1) !important;
+    border-radius: 14px;
+    position: absolute;
+  }
+  
+  .card:hover{
+    background-color: rgba(0,0,0,.2) !important;
+    border-radius: 14px;
+    position: absolute;
+  }
+  
+  #hotdog, #popcorn, #soda{
+  
+  }
+  
+  a {
+    color: white;
+  }
+  
+  #popcorn:hover, #soda:hover, #hotdog:hover{
+    font-size: x-large;
+    cursor: pointer;
+    transform: translateY(0);
+    color: rgba(255, 255, 250, .3)
+  }
+  
+  #popcorn:active, #soda:active, #hotdog:active{
+    background-color: rgba(0,0,0,.1);
+    color: rgba(255,255,200, .9);
+    font-size: x-large;
+    transform: translateX(10);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card-action a{
+    color: #6FEAF6 !important;
+  }
+  
+  #movie {
+    border-width: 5px;
+    border-color: gold;
+  }
+  
+  #submit-payment {
+    background-color: rgba(255,255,255, .3);
+    color: #6FEAF6;
+    border: none;
+    padding: 10px;
+    vertical-align: top;
+    box-shadow: 2px 1px 2px gray;
+    margin: 4px 10px 4px 10px;
+  }
+  
+  #submit-payment:hover {
+    color: rgba(111,234,246,.5);
+  }
+  
+  #submit-payment:active {
+    box-shadow: 0 0 0 white;
+    margin: 6px 10px 2px 10px;
+  }
+  
+  .container{
+    padding-top:50px
+  }
+  
+  
+  
+  
+  .bg-modal {
+    width: 100%;
+    height: 150%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .modal-content {
+    width: 60%;
+    height: 60%;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center; 
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 10px !important;
+  }
+  
+  input {
+    width: 50%;
+    display: inline-block;
+    margin: 0, auto;
+  }
+  
+  #zip-code {
+    width: 55%;
+    /* display: inline-block; */
+    float: inline-start;
+    margin: 0, auto;
+  }
+  
+  
+  select {
+    width: 25%;
+    display: inline-block; 
+    margin: 0, auto;
+    margin-right: 70px;
+  }
+  
+  .close {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 50px;
+  transform: rotate(45deg);
+  outline: black;
+  cursor: pointer;
+  color:darkblue;
+  }
+  
+  .close:hover{
+  opacity: 50%;
+  }
+  
+  .modal-name {
+    margin-top: 20px;
+    color:black;
+    font-family: 'Dosis', sans-serif;
+    font-size: 45px;
+  }
+  #payment-method {
+    float: left;
+    width: 30%;
+    margin-left: 25px;
+    margin-top: 3px;
+    margin-bottom: 25px;
+  }
+  
+  .cc-info {
+    /* display: inline-block; */
+    width: 50% !important;
+  }
+  
+  #zip-code {
+    margin-top: 20px;
+  }
+  
+  #confirm {
+    height: 35px;
+    width: 200px;
+    margin-top: 10px;
+  }
+  
+  .confirmation-of-payment {
+    height: 250px;
+    position: relative;
+    font-size: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bolder;
+    text-shadow: 4px 3px yellowgreen;
+    color: greenyellow;
+    z-index: -5;
+    background-color: rgba(211,211,211,.3);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    width: 500px;
+  }
+  /* vietnamese */
+  @font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/dosis/v17/HhyJU5sn9vOmLxNkIwRSjTVNWLEJ0LQl1BMEfq4.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/dosis/v17/HhyJU5sn9vOmLxNkIwRSjTVNWLEJ0LQl1RMEfq4.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/dosis/v17/HhyJU5sn9vOmLxNkIwRSjTVNWLEJ0LQl2xME.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
